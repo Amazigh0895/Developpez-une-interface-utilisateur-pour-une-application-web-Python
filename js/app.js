@@ -82,4 +82,32 @@ for (let i = 0; i < myModals.length; i++) {
   
 }
 */
+
+const url = 'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score';
+const item_img = document.querySelector(".item-img");
+const modal_title = document.querySelector(".modal-title");
+const btn = document.querySelector("#myBtn");
+fetch(url)
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (data) {
+    // `json` est le vrai résultat de notre requête !
+    console.log(data["results"][0]["image_url"]);
+    modal_title.innerHTML = data["results"][0]["title"];
+    //item_img.src = data["results"][0]["image_url"];
+    btn.style.background =`center/cover no-repeat url('${data["results"][0]["image_url"]}')`
+
+  })
+
+
+
+
+
+
+
+
+
+
+
 export{openModal,closeModal,slide_back,slide_next};

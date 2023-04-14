@@ -68,16 +68,23 @@ html,body{
         color: $color-secondary;
         flex-direction: row;
         outline: solid;
+        width: 60%;
+        height: 500px;
         .item{
             display:inline-block;
             padding:2em;
-            width: 45%;
+            width: 60%;
             margin: 10px;
             float:none;
-            img{
+            &-img{
                 width: 90%;
                 text-align: center;
                 display: block;
+            }
+            #myBtn{
+                background: center/cover no-repeat url("../img/movie_pic.jpg");
+                width: 90%;
+                height: 90%;
             }
         }
     }

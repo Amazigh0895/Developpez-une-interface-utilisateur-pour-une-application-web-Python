@@ -67,18 +67,25 @@ html, body {
   color: #7bc39b;
   flex-direction: row;
   outline: solid;
+  width: 60%;
+  height: 500px;
 }
 .container .best-movie .item {
   display: inline-block;
   padding: 2em;
-  width: 45%;
+  width: 60%;
   margin: 10px;
   float: none;
 }
-.container .best-movie .item img {
+.container .best-movie .item-img {
   width: 90%;
   text-align: center;
   display: block;
+}
+.container .best-movie .item #myBtn {
+  background: center/cover no-repeat url("../img/movie_pic.jpg");
+  width: 90%;
+  height: 90%;
 }
 .container .categorie {
   background-color: #172830;
