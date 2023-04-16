@@ -5,7 +5,6 @@ function slide_next(){
   const btn_next = document.querySelectorAll('.btn-slide__next');
   // Get all categories
   const categories = document.querySelectorAll('.categorie');
-  console.log(btn_next)
   // Get all categories
   for (let i = 0; i < btn_next.length; i++) {
     const btn = btn_next[i];
@@ -113,80 +112,105 @@ function chargingBestMovie(){
     })
   })
 }
+// Function fill home btn image movie
+function fillbtnHomeMovie(value){
+  const top_rated_categorie = document.querySelector('.top-rated');
+  top_rated_categorie.innerHTML +=`
+  <div class="items">
+    <button id="myBtn" style = " background : center/cover no-repeat url('${value}') ">
+    </button>
+  </div>`;
+} 
+// Function fill modal
+function fillModalItems(dataMv,index){
+  const top_rated_items = document.querySelectorAll('.top-rated .items');
+  console.log(top_rated_items)
+  top_rated_items[index].innerHTML +=`
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 class="modal-title">${dataMv["title"]}</h3>
+        <img class="modal-img" src="${dataMv["image_url"]}" alt="test">
+        <ul class="modal-list_details_movie">
+        <li>Le genre complet du film : <strong>${dataMv["genres"][0]}</strong></li>
+        <li>Sa date de sorti : <strong>${dataMv["date_published"]}</strong></li>
+        <li>Son Rated : <strong>${dataMv["rated"]}</strong></li>
+        <li>Son score Imdb : <strong>${dataMv["imdb_score"]}</strong></li>
+        <li>Son réalisateur : <strong>${dataMv["directors"][0]}</strong></li>
+        <li>La liste des acteurs : <strong>${dataMv["actors"]}</strong></li>
+        <li>Sa durée : <strong>${dataMv["duration"]}</strong></li>
+        <li>Le pays d'origine : <strong>${dataMv["countries"][0]}</strong></li>
+        <li>Le résultat au Box Office : <strong>${dataMv["votes"]}</strong></li>
+        </ul>
+        <p class="modal-description">${dataMv["long_description"]}</p>
+    </div>
+</div>`;
+}
 
-const url = 'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score'
-const top_rated_categorie = document.querySelector('.top-rated');
 
-// List of urls images movies
-const listUrlsImageTopMovies = []
-fetch(url)
-.then(function (response) {
-  return response.json()
-})
-.then(function (data) {
-  // `json` est le vrai résultat de notre requête !
-  // Get next page url
-  const urlNext = data["next"];
-  // Add urls image in list "First page"
-  for(let i = 0; i < 5; i++){
-    listUrlsImageTopMovies.push(data["results"][i]["image_url"])
-   }
-   fetch(urlNext)
+
+function chargingTopRatedMovies(){
+      // top rated movies url
+      const url = 'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score'
+      // List of urls images movies
+      const listUrlsImageTopMovies = []
+      fetch(url)
       .then(function (response) {
         return response.json()
       })
-      .then(function (dataNext) {
-        // Add urls image in list "Seconde Page"
-        for(let i=0; i < 2; i++){
-          listUrlsImageTopMovies.push(dataNext["results"][i]["image_url"])
+      .then(function (data) {
+        // `json` est le vrai résultat de notre requête !
+        // Get next page url
+        const urlNext = data["next"];
+        // Add urls image in list "First page"
+        for(let i = 0; i < 5; i++){
+          listUrlsImageTopMovies.push(data["results"][i]["image_url"])
         }
-        console.log(listUrlsImageTopMovies.length)
-        //remplissage de la page d'accueil
-        for(let i=0; i < 7; i++){
-          top_rated_categorie.innerHTML +=`
-          <div class="items">
-            <button id="myBtn" style = " background : center/cover no-repeat url('${listUrlsImageTopMovies[i]}') ">
-            </button>
-          </div>`;
-        }
-        const top_rated_items = document.querySelectorAll('.top-rated .items');
-        for(let i=0; i < 5; i++){
-        // Get url details movie
-        const urlDetailsMovie = data["results"][i]["url"];
-        console.log(urlDetailsMovie)
-          fetch(urlDetailsMovie)
+        fetch(urlNext)
             .then(function (response) {
               return response.json()
             })
-            .then(function (dataMv) {
-              console.log(dataMv)
-            top_rated_items[i].innerHTML +=`
-            <div id="myModal" class="modal">
-              <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <h3 class="modal-title">${dataMv["title"]}</h3>
-                  <img class="modal-img" src="${dataMv["image_url"]}" alt="test">
-                  <ul class="modal-list_details_movie">
-                  <li>Le genre complet du film : <strong>${dataMv["genres"][0]}</strong></li>
-                  <li>Sa date de sorti : <strong>${dataMv["date_published"]}</strong></li>
-                  <li>Son Rated : <strong>${dataMv["rated"]}</strong></li>
-                  <li>Son score Imdb : <strong>${dataMv["imdb_score"]}</strong></li>
-                  <li>Son réalisateur : <strong>${dataMv["directors"][0]}</strong></li>
-                  <li>La liste des acteurs : <strong>${dataMv["actors"]}</strong></li>
-                  <li>Sa durée : <strong>${dataMv["duration"]}</strong></li>
-                  <li>Le pays d'origine : <strong>${dataMv["countries"][0]}</strong></li>
-                  <li>Le résultat au Box Office : <strong>${dataMv["votes"]}</strong></li>
-                  </ul>
-                  <p class="modal-description">${dataMv["long_description"]}</p>
-              </div>
-          </div>`
-          slide_next();
-          slide_back();
-          openModal();
-          closeModal();
+            .then(function (dataNext) {
+              // Add urls image in list "Seconde Page"
+              for(let i=0; i < 2; i++){
+                listUrlsImageTopMovies.push(dataNext["results"][i]["image_url"]);
+              }
+              //remplissage de la page d'accueil
+              for(let i=0; i < 5; i++){
+                fillbtnHomeMovie(listUrlsImageTopMovies[i]);
+                const urlDetailsMovie = data["results"][i]["url"];
+                
+                // Remplissage des modals
+                  fetch(urlDetailsMovie)
+                    .then(function (response) {
+                      return response.json()
+                    })
+                    .then(function (dataMv) {
+                      fillModalItems(dataMv,i);
+                    })
+              }
+              for(let i=0; i < 2; i++){
+                const urlDetailsMovieNext = dataNext["results"][i]["url"];
+                // rajout des deux derniers film aux items
+                fillbtnHomeMovie(listUrlsImageTopMovies[i+5]);
+                // Remplissage des modals[next page]
+                fetch(urlDetailsMovieNext)
+                .then(function (response) {
+                  return response.json()
+                })
+                  .then(function (dataMvNext) {
+                    for(let i=5; i < 7; i++){
+                      fillModalItems(dataMvNext,i)
+                  }
+                  slide_next();
+                  slide_back();
+                  openModal();
+                  closeModal();
+                })}
             })
-       }
-      })
-  })
+            })
 
-  export{chargingBestMovie};
+    }
+
+
+  export{chargingBestMovie,chargingTopRatedMovies};
