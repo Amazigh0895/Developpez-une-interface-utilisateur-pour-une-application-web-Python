@@ -70,6 +70,7 @@ html,body{
         outline: solid;
         width: 60%;
         height: 500px;
+        text-align: center;
         .item{
             display:inline-block;
             padding:2em;
@@ -109,9 +110,10 @@ html,body{
         margin: 10px;
         margin-bottom: 30px;
         float:none;
-        &-img{
-                width: 100%;
-                height: 100%;   
+        #myBtn{
+            background: center/cover no-repeat url("../img/movie_pic.jpg");
+            width: 100%;
+            height: 100%;
             }   
     }
 }
@@ -151,7 +153,6 @@ h2{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -162,7 +163,6 @@ h2{
 
     &-img{
         width: 30%;
-        background-color: yellow;
     }
     &-title{
         
@@ -175,9 +175,10 @@ h2{
     &-content {
     background-color:$color-primary;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid $color-secondary;
-    width: 80%;
+    width: 70%;
+    margin-bottom: 60px;
     /* The Close Button */
     .close {
     color: $color-secondary;
@@ -191,6 +192,15 @@ h2{
       cursor: pointer;
     }
   }
+  ul{
+    list-style-type:none;
+    color:#a1cdb5;
+    li{
+        white-space: break-spaces;
+
+    }
+  }
+
   }
   }
   

@@ -69,6 +69,7 @@ html, body {
   outline: solid;
   width: 60%;
   height: 500px;
+  text-align: center;
 }
 .container .best-movie .item {
   display: inline-block;
@@ -108,7 +109,8 @@ html, body {
   margin-bottom: 30px;
   float: none;
 }
-.container .items-img {
+.container .items #myBtn {
+  background: center/cover no-repeat url("../img/movie_pic.jpg");
   width: 100%;
   height: 100%;
 }
@@ -150,7 +152,6 @@ h2 {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -162,7 +163,6 @@ h2 {
 }
 .modal-img {
   width: 30%;
-  background-color: yellow;
 }
 .modal-description {
   white-space: break-spaces;
@@ -170,9 +170,10 @@ h2 {
 .modal-content {
   background-color: #172830;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #7bc39b;
-  width: 80%;
+  width: 70%;
+  margin-bottom: 60px;
   /* The Close Button */
 }
 .modal-content .close {
@@ -185,6 +186,13 @@ h2 {
   color: #FFF;
   text-decoration: none;
   cursor: pointer;
+}
+.modal-content ul {
+  list-style-type: none;
+  color: #a1cdb5;
+}
+.modal-content ul li {
+  white-space: break-spaces;
 }
 
 footer {
