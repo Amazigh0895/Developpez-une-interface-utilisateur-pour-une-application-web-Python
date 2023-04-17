@@ -113,19 +113,16 @@ function chargingBestMovie(){
   })
 }
 // Function fill home btn image movie
-function fillbtnHomeMovie(value){
-  const top_rated_categorie = document.querySelector('.top-rated');
-  top_rated_categorie.innerHTML +=`
+function fillbtnHomeMovie(listUrlsImageTopMovies,categorie){
+  categorie.innerHTML +=`
   <div class="items">
-    <button id="myBtn" style = " background : center/cover no-repeat url('${value}') ">
+    <button id="myBtn" style = " background : center/cover no-repeat url('${listUrlsImageTopMovies}') ">
     </button>
   </div>`;
 } 
 // Function fill modal
-function fillModalItems(dataMv,index){
-  const top_rated_items = document.querySelectorAll('.top-rated .items');
-  console.log(top_rated_items)
-  top_rated_items[index].innerHTML +=`
+function fillModalItems(dataMv,indexOfItems){
+  indexOfItems.innerHTML +=`
   <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -146,71 +143,90 @@ function fillModalItems(dataMv,index){
     </div>
 </div>`;
 }
-
-
-
+// Function get top rated movies
 function chargingTopRatedMovies(){
       // top rated movies url
-      const url = 'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score'
-      // List of urls images movies
-      const listUrlsImageTopMovies = []
+      const url = 'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=7'
       fetch(url)
       .then(function (response) {
         return response.json()
       })
       .then(function (data) {
         // `json` est le vrai résultat de notre requête !
-        // Get next page url
-        const urlNext = data["next"];
-        // Add urls image in list "First page"
-        for(let i = 0; i < 5; i++){
-          listUrlsImageTopMovies.push(data["results"][i]["image_url"])
-        }
-        fetch(urlNext)
-            .then(function (response) {
-              return response.json()
-            })
-            .then(function (dataNext) {
-              // Add urls image in list "Seconde Page"
-              for(let i=0; i < 2; i++){
-                listUrlsImageTopMovies.push(dataNext["results"][i]["image_url"]);
-              }
-              //remplissage de la page d'accueil
-              for(let i=0; i < 5; i++){
-                fillbtnHomeMovie(listUrlsImageTopMovies[i]);
+        // Select my categorie top-rated
+         const top_rated_categorie = document.querySelector('.top-rated');
+              //Fill home page
+              for(let i=0; i < 7; i++){
+                fillbtnHomeMovie( data["results"][i]["image_url"],top_rated_categorie);
                 const urlDetailsMovie = data["results"][i]["url"];
-                
-                // Remplissage des modals
+                // Fimm my modals
                   fetch(urlDetailsMovie)
                     .then(function (response) {
                       return response.json()
                     })
                     .then(function (dataMv) {
-                      fillModalItems(dataMv,i);
+                      const top_rated_items = document.querySelectorAll('.top-rated .items');
+                      fillModalItems(dataMv,top_rated_items[i]);
+
+                      slide_next();
+                      slide_back();
+                      openModal();
+                      closeModal();
                     })
               }
-              for(let i=0; i < 2; i++){
-                const urlDetailsMovieNext = dataNext["results"][i]["url"];
-                // rajout des deux derniers film aux items
-                fillbtnHomeMovie(listUrlsImageTopMovies[i+5]);
-                // Remplissage des modals[next page]
-                fetch(urlDetailsMovieNext)
-                .then(function (response) {
-                  return response.json()
-                })
-                  .then(function (dataMvNext) {
-                    for(let i=5; i < 7; i++){
-                      fillModalItems(dataMvNext,i)
-                  }
-                  slide_next();
-                  slide_back();
-                  openModal();
-                  closeModal();
-                })}
             })
-            })
-
     }
+// Function charging categorie of movies
+function chargingCategorieMovie(categorie,CategorieSelector){
+      // Animation movies url
+      
+      const urlCategorie = `http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&genre=${categorie}&page_size=10`
+     
+      fetch(urlCategorie)
+       .then(function (response) {
+         return response.json()
+       })
+       .then(function (data) {
+         // `json` est le vrai résultat de notre requête !
+               //Fill home page
+               for(let i=3; i < 10; i++){
+                 fillbtnHomeMovie( data["results"][i]["image_url"],CategorieSelector);
+                 const urlDetailsMovie = data["results"][i]["url"];
+                 // Fimm my modals
+                   fetch(urlDetailsMovie)
+                     .then(function (response) {
+                       return response.json()
+                     })
+                     .then(function (dataMv) {
+                       const items = document.querySelectorAll(`.${categorie} .items`);
+                       fillModalItems(dataMv,items[i-3]);
+ 
+                       slide_next();
+                       slide_back();
+                       openModal();
+                       closeModal();
+                     })
+               }
+             })
+}
 
+// Get all categories
+function myCategories(){
 
-  export{chargingBestMovie,chargingTopRatedMovies};
+  // Create categorie animation
+  const AnimeCategorie = "Animation";
+  const AnimeCategorieSelector = document.querySelector(".Animation");
+  chargingCategorieMovie(AnimeCategorie,AnimeCategorieSelector);
+
+  // Create categorie Action
+  const ActionCategorie = "Action";
+  const ActionCategorieSelector = document.querySelector(".Action");
+  chargingCategorieMovie(ActionCategorie,ActionCategorieSelector);
+
+  // Create categorie Drama
+  const DramaCategorie = "Drama";
+  const DramaCategorieSelector = document.querySelector(".Drama");
+  chargingCategorieMovie(DramaCategorie,DramaCategorieSelector);
+}
+
+  export{chargingBestMovie,chargingTopRatedMovies,myCategories};

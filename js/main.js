@@ -1,3 +1,5 @@
-import { chargingBestMovie,chargingTopRatedMovies}  from './app.js';
+import { chargingBestMovie,chargingTopRatedMovies,myCategories}  from './app.js';
 chargingBestMovie();
 chargingTopRatedMovies();
+myCategories();
+
