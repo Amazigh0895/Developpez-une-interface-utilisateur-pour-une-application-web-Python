@@ -3,7 +3,8 @@ $color-secondary: #7bc39b;
 $color-primary: #172830;
 html,body{
     margin: 0; 
-    background-color: $color-primary;
+    //background-color: $color-primary;
+    background: center/cover no-repeat url("../img/backgroundImage.png");
 }
 #header{
     margin: 0;
@@ -17,38 +18,39 @@ html,body{
         display: flex;
     }
     .nav {
-        border-bottom: 4px solid rgba(0, 0, 0, 0.77);
+        border-bottom: 4px solid #d27878;;
         padding-right: 6rem;
         text-align: right;
         .nav__link {
             display: inline;
             font-size: 1.5rem;
             margin-left: 10px; 
-            background: linear-gradient(90deg, $color-primary 0%, $color-secondary 100%); 
+            background: center/cover no-repeat url("../img/backgroundImage.png");
             padding: 10px 35px; 
             border: none; 
             box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
             border-radius: 22px 50px;
             transition : 327ms;
             transform: translateY(0);
-            &--active {
-                color: $color-secondary;
-                }
+            color: #FFF;
             &:hover{ 
                 transition : 327ms;
                 padding: 10px 50px;
                 transform : translateY(-0px);
-                background: linear-gradient(90deg, $color-secondary 0%, $color-primary 100%);
                 color: #ffffff;
                 border: none;
                 }
             a {
                 text-decoration: none;
                 color: #D6FFF5;
-                &:hover {
-                    color: $color-secondary;
-                  }
                 }
+            }
+            .logo{
+                display: flex;
+                width: 104px;
+                margin-left: 55px;
+                margin-bottom: -28px;
+                margin-top: 10px;
             }
         }
 
@@ -57,17 +59,17 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $color-primary;
+    //background-color: $color-primary;
     height: 100%;
     overflow-y: auto;
     .best-movie
     {
-        background-color:$color-primary;
+        background: center/cover no-repeat url("../img/backgroundImage.png");
         display: flex;
         justify-content: center;
         color: $color-secondary;
         flex-direction: row;
-        outline: solid;
+        outline: solid burlywood;
         width: 60%;
         height: 500px;
         text-align: center;
@@ -90,14 +92,14 @@ html,body{
         }
     }
     .categorie{
-        background-color: $color-primary;
+        background: center/cover no-repeat url("../img/backgroundImage.png");
         color: $color-secondary;
         text-align: center;
         overflow-x:hidden;
         overflow-y: hidden;
         white-space: nowrap;
         width: 71%;
-        outline: solid;
+        outline: solid burlywood;
         scroll-behavior: smooth;
         margin-bottom: 10px;
         
@@ -121,8 +123,8 @@ html,body{
 h2{
     display: flex;
     justify-content: center;
-    color: $color-secondary;
-    background: linear-gradient(0deg, $color-secondary -16%, $color-primary 25%); 
+    color: rgb(109 252 255);
+    background: center/cover no-repeat url("../img/backgroundImage.png");
     padding: 10px 35px; 
     border: none; 
     box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
@@ -208,6 +210,6 @@ h2{
 footer{
     display: flex;
     justify-content: center;
-    background-color: $color-primary;
+    background: center/cover no-repeat url("../img/backgroundImage.png");
     color: $color-secondary;
 }

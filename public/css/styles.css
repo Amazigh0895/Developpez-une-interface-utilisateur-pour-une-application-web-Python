@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,900i");
 html, body {
   margin: 0;
-  background-color: #172830;
+  background: center/cover no-repeat url("../img/backgroundImage.png");
 }
 
 #header {
@@ -17,7 +17,7 @@ html, body {
   display: flex;
 }
 #header .nav {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.77);
+  border-bottom: 4px solid #d27878;
   padding-right: 6rem;
   text-align: right;
 }
@@ -25,22 +25,19 @@ html, body {
   display: inline;
   font-size: 1.5rem;
   margin-left: 10px;
-  background: linear-gradient(90deg, #172830 0%, #7bc39b 100%);
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   padding: 10px 35px;
   border: none;
   box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
   border-radius: 22px 50px;
   transition: 327ms;
   transform: translateY(0);
-}
-#header .nav .nav__link--active {
-  color: #7bc39b;
+  color: #FFF;
 }
 #header .nav .nav__link:hover {
   transition: 327ms;
   padding: 10px 50px;
   transform: translateY(0px);
-  background: linear-gradient(90deg, #7bc39b 0%, #172830 100%);
   color: #ffffff;
   border: none;
 }
@@ -48,25 +45,28 @@ html, body {
   text-decoration: none;
   color: #D6FFF5;
 }
-#header .nav .nav__link a:hover {
-  color: #7bc39b;
+#header .nav .logo {
+  display: flex;
+  width: 104px;
+  margin-left: 55px;
+  margin-bottom: -28px;
+  margin-top: 10px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #172830;
   height: 100%;
   overflow-y: auto;
 }
 .container .best-movie {
-  background-color: #172830;
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   display: flex;
   justify-content: center;
   color: #7bc39b;
   flex-direction: row;
-  outline: solid;
+  outline: solid burlywood;
   width: 60%;
   height: 500px;
   text-align: center;
@@ -89,15 +89,16 @@ html, body {
   height: 90%;
 }
 .container .categorie {
-  background-color: #172830;
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   color: #7bc39b;
   text-align: center;
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
   width: 71%;
-  outline: solid;
+  outline: solid burlywood;
   scroll-behavior: smooth;
+  margin-bottom: 10px;
 }
 .container .items {
   display: inline-block;
@@ -118,8 +119,8 @@ html, body {
 h2 {
   display: flex;
   justify-content: center;
-  color: #7bc39b;
-  background: linear-gradient(0deg, #7bc39b -16%, #172830 25%);
+  color: rgb(109, 252, 255);
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   padding: 10px 35px;
   border: none;
   box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
@@ -198,7 +199,7 @@ h2 {
 footer {
   display: flex;
   justify-content: center;
-  background-color: #172830;
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   color: #7bc39b;
 }
 
