@@ -229,4 +229,24 @@ function myCategories(){
   chargingCategorieMovie(DramaCategorie,DramaCategorieSelector);
 }
 
-  export{chargingBestMovie,chargingTopRatedMovies,myCategories};
+function verticalMenu(){
+  const home = document.querySelector(".categLink");
+  const verticalMenu = document.querySelector(".menuListVertical");
+  const header = document.querySelector("#header");
+  home.onclick = function () {
+    
+      if (verticalMenu.style.display === "block") {
+        verticalMenu.style.display = "none";
+        header.style.background = "#00000000";
+        
+          } 
+      else {
+        verticalMenu.style.display = "block";
+        header.style.background = "#00000075";
+    }
+}
+}
+
+
+
+  export{chargingBestMovie,chargingTopRatedMovies,myCategories,verticalMenu};

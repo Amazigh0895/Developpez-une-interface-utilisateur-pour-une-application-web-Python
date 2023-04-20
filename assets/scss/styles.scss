@@ -21,18 +21,41 @@ html,body{
         border-bottom: 4px solid #d27878;;
         padding-right: 6rem;
         text-align: right;
+        .logoList{
+            width: 36px;
+            position: relative;
+            margin-bottom: -11px;
+            margin-left: -46px;
+            
+        }
+        .menuListVertical{
+            list-style-type:none;
+            margin-top: 35px;
+            display: none;
+            .link{
+                margin-bottom: 25px;
+            }
+            a{
+                text-decoration: none;
+               
+            }
+            
+        }
         .nav__link {
             display: inline;
             font-size: 1.5rem;
             margin-left: 10px; 
             background: center/cover no-repeat url("../img/backgroundImage.png");
-            padding: 10px 35px; 
+            padding: 10px 48px; 
             border: none; 
             box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
             border-radius: 22px 50px;
             transition : 327ms;
             transform: translateY(0);
             color: #FFF;
+            .link{
+                display: block;
+            }
             &:hover{ 
                 transition : 327ms;
                 padding: 10px 50px;
@@ -44,6 +67,7 @@ html,body{
                 text-decoration: none;
                 color: #D6FFF5;
                 }
+               
             }
             .logo{
                 display: flex;
@@ -64,19 +88,19 @@ html,body{
     overflow-y: auto;
     .best-movie
     {
-        background: center/cover no-repeat url("../img/backgroundImage.png");
+        //background: center/cover no-repeat url("../img/backgroundImage.png");
         display: flex;
         justify-content: center;
         color: $color-secondary;
         flex-direction: row;
         outline: solid burlywood;
-        width: 60%;
-        height: 500px;
+        width: 36%;
+        height: 460px;
         text-align: center;
         .item{
             display:inline-block;
             padding:2em;
-            width: 60%;
+            width: 100%;
             margin: 10px;
             float:none;
             &-img{
@@ -86,8 +110,8 @@ html,body{
             }
             #myBtn{
                 background: center/cover no-repeat url("../img/movie_pic.jpg");
-                width: 90%;
-                height: 90%;
+                width: 78%;
+                height: 100%;
             }
         }
     }

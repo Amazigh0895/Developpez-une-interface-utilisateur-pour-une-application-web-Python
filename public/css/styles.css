@@ -21,18 +21,38 @@ html, body {
   padding-right: 6rem;
   text-align: right;
 }
+#header .nav .logoList {
+  width: 36px;
+  position: relative;
+  margin-bottom: -11px;
+  margin-left: -46px;
+}
+#header .nav .menuListVertical {
+  list-style-type: none;
+  margin-top: 35px;
+  display: none;
+}
+#header .nav .menuListVertical .link {
+  margin-bottom: 25px;
+}
+#header .nav .menuListVertical a {
+  text-decoration: none;
+}
 #header .nav .nav__link {
   display: inline;
   font-size: 1.5rem;
   margin-left: 10px;
   background: center/cover no-repeat url("../img/backgroundImage.png");
-  padding: 10px 35px;
+  padding: 10px 48px;
   border: none;
   box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
   border-radius: 22px 50px;
   transition: 327ms;
   transform: translateY(0);
   color: #FFF;
+}
+#header .nav .nav__link .link {
+  display: block;
 }
 #header .nav .nav__link:hover {
   transition: 327ms;
@@ -61,20 +81,19 @@ html, body {
   overflow-y: auto;
 }
 .container .best-movie {
-  background: center/cover no-repeat url("../img/backgroundImage.png");
   display: flex;
   justify-content: center;
   color: #7bc39b;
   flex-direction: row;
   outline: solid burlywood;
-  width: 60%;
-  height: 500px;
+  width: 36%;
+  height: 460px;
   text-align: center;
 }
 .container .best-movie .item {
   display: inline-block;
   padding: 2em;
-  width: 60%;
+  width: 100%;
   margin: 10px;
   float: none;
 }
@@ -85,8 +104,8 @@ html, body {
 }
 .container .best-movie .item #myBtn {
   background: center/cover no-repeat url("../img/movie_pic.jpg");
-  width: 90%;
-  height: 90%;
+  width: 78%;
+  height: 100%;
 }
 .container .categorie {
   background: center/cover no-repeat url("../img/backgroundImage.png");
