@@ -4,6 +4,7 @@ html, body {
   background: center/cover no-repeat url("../img/backgroundImage.png");
 }
 
+/*The header*/
 #header {
   margin: 0;
 }
@@ -73,6 +74,7 @@ html, body {
   margin-top: 10px;
 }
 
+/* The container */
 .container {
   display: flex;
   flex-direction: column;
@@ -81,6 +83,7 @@ html, body {
   overflow-y: auto;
 }
 .container .best-movie {
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   display: flex;
   justify-content: center;
   color: #7bc39b;
@@ -135,6 +138,7 @@ html, body {
   height: 100%;
 }
 
+/* The movie's titles */
 h2 {
   display: flex;
   justify-content: center;
@@ -146,6 +150,7 @@ h2 {
   margin-bottom: 0;
 }
 
+/*the slide buttons*/
 .btn-slide {
   display: inline-block;
   margin-top: 15%;
@@ -185,10 +190,11 @@ h2 {
   width: 30%;
 }
 .modal-description {
+  color: black;
   white-space: break-spaces;
 }
 .modal-content {
-  background-color: #172830;
+  background: center/cover no-repeat url("../img/backgroundImage.png");
   margin: auto;
   padding: 10px;
   border: 1px solid #7bc39b;
@@ -197,7 +203,7 @@ h2 {
   /* The Close Button */
 }
 .modal-content .close {
-  color: #7bc39b;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -209,17 +215,18 @@ h2 {
 }
 .modal-content ul {
   list-style-type: none;
-  color: #a1cdb5;
+  color: black;
 }
 .modal-content ul li {
   white-space: break-spaces;
 }
 
+/* The footer */
 footer {
   display: flex;
   justify-content: center;
   background: center/cover no-repeat url("../img/backgroundImage.png");
-  color: #7bc39b;
+  color: black;
 }
 
 /*# sourceMappingURL=styles.css.map */

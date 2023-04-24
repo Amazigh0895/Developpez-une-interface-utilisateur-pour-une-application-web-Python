@@ -228,7 +228,7 @@ function myCategories(){
   const DramaCategorieSelector = document.querySelector(".Drama");
   chargingCategorieMovie(DramaCategorie,DramaCategorieSelector);
 }
-
+// Display vetical menu
 function verticalMenu(){
   const home = document.querySelector(".categLink");
   const verticalMenu = document.querySelector(".menuListVertical");
