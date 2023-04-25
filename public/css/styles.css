@@ -117,7 +117,7 @@ html, body {
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
-  width: 71%;
+  width: 85%;
   outline: solid burlywood;
   scroll-behavior: smooth;
   margin-bottom: 10px;
@@ -127,7 +127,7 @@ html, body {
   padding: 2em;
   vertical-align: middle;
   height: 280px;
-  width: 280px;
+  width: 244px;
   margin: 10px;
   margin-bottom: 30px;
   float: none;
@@ -165,11 +165,11 @@ h2 {
 }
 .btn-slide__next {
   background: url("../img/next.png") 1% 35% no-repeat;
-  right: 12%;
+  right: 5%;
 }
 .btn-slide__back {
   background: url("../img/back.png") 1% 35% no-repeat;
-  left: 12%;
+  left: 5%;
 }
 
 /* The Modal (background) */
